@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário Jogos Vorazes 2025</title>
 <style>
+    /* Fonte temática */
     @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
     body {
         font-family: 'Pirata One', Arial, sans-serif;
         margin: 20px;
-        background: linear-gradient(to bottom, #1a1a1a, #000);
+        background: linear-gradient(to bottom, #1a1a1a, #000000);
         color: #fff;
     }
 
     h1 {
         text-align: center;
-        color: #f39c12;
+        color: #f39c12; /* Laranja fogo */
         font-size: 3em;
         text-shadow: 2px 2px 4px #000;
         margin-bottom: 40px;
@@ -35,11 +36,9 @@
         background: #222;
         border: 2px solid #f39c12;
         border-radius: 10px;
-        padding: 10px;
+        padding: 15px;
         text-align: center;
         box-shadow: 0 0 20px rgba(243, 156, 18, 0.7);
-        position: relative;
-        overflow: hidden;
         transition: transform 0.3s, box-shadow 0.3s;
     }
 
@@ -54,40 +53,19 @@
         color: #f39c12;
         border-bottom: 2px solid #f39c12;
         padding-bottom: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         text-shadow: 1px 1px 2px #000;
-    }
-
-    .mes img.distrito {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 2px solid #f39c12;
-    }
-
-    .mes img.gif-destaque {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 2px solid #e74c3c;
-        box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
     }
 
     .mes table {
         width: 100%;
         border-collapse: collapse;
-        margin-top: 5px;
     }
 
     .mes th, .mes td {
-        padding: 5px 3px;
+        padding: 8px 4px;
         text-align: center;
-        font-size: 0.85em;
+        font-size: 0.9em;
         border: 1px solid #444;
     }
 
@@ -95,11 +73,18 @@
         background-color: #333;
         color: #f39c12;
         font-weight: bold;
+        text-shadow: 1px 1px 2px #000;
     }
 
+    /* Destaque para domingo */
     .mes th:first-child, .mes td:first-child {
-        color: #e74c3c;
+        color: #e74c3c; /* Vermelho sangue */
         font-weight: bold;
+    }
+
+    .dia {
+        cursor: default;
+        transition: background 0.3s, color 0.3s;
     }
 
     .dia:hover {
@@ -113,13 +98,19 @@
     }
 
     @media (max-width: 1200px) {
-        #calendario-container { grid-template-columns: repeat(3, 1fr); }
+        #calendario-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
     @media (max-width: 800px) {
-        #calendario-container { grid-template-columns: repeat(2, 1fr); }
+        #calendario-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
     @media (max-width: 500px) {
-        #calendario-container { grid-template-columns: 1fr; }
+        #calendario-container {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 </head>
@@ -131,57 +122,35 @@
 <script>
     const container = document.getElementById('calendario-container');
     const nomesMeses = [
-        "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-        "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+        "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
     ];
-    const nomesDias = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+    const nomesDias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
     const ano = 2025;
-
-    // Imagens de cada distrito
-    const imagensDistritos = [
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/166911114.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/202401939.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/211280998.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/293232634.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/392696179.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/566031016.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/585400009.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/612145833.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/725442475.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/755832705.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/867605455.png',
-        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/921322687.png'
-    ];
-
-    // GIF de destaque
-    const gifDestaque = 'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/5Zeus.gif';
 
     function gerarMes(mesIndex, ano) {
         const nomeMes = nomesMeses[mesIndex];
         const divMes = document.createElement('div');
         divMes.className = 'mes';
-        divMes.innerHTML = `
-            <h2>${nomeMes}</h2>
-            <img class="distrito" src="${imagensDistritos[mesIndex]}" alt="Distrito ${mesIndex+1}">
-            <img class="gif-destaque" src="${gifDestaque}" alt="GIF Destaque">
-        `;
-
+        divMes.id = nomeMes.toLowerCase() + '-' + ano;
+        divMes.innerHTML = `<h2>${nomeMes}</h2>`;
         const table = document.createElement('table');
         const thead = document.createElement('thead');
-        thead.innerHTML = '<tr>' + nomesDias.map(d => `<th>${d}</th>`).join('') + '</tr>';
+        thead.innerHTML = '<tr>' + nomesDias.map(dia => `<th>${dia}</th>`).join('') + '</tr>';
         table.appendChild(thead);
 
         const tbody = document.createElement('tbody');
         const primeiroDia = new Date(ano, mesIndex, 1);
         const diaSemanaInicio = primeiroDia.getDay();
-        const ultimoDia = new Date(ano, mesIndex+1, 0).getDate();
-        let diaAtual = 1, contadorCelulas = 0;
+        const ultimoDia = new Date(ano, mesIndex + 1, 0).getDate();
+        let diaAtual = 1;
+        let contadorCelulas = 0;
 
-        while(diaAtual <= ultimoDia){
+        while (diaAtual <= ultimoDia) {
             const tr = document.createElement('tr');
-            for(let i=0;i<7;i++){
+            for (let i = 0; i < 7; i++) {
                 const td = document.createElement('td');
-                if(contadorCelulas < diaSemanaInicio || diaAtual > ultimoDia){
+                if (contadorCelulas < diaSemanaInicio || diaAtual > ultimoDia) {
                     td.className = 'vazio';
                     td.innerHTML = '&nbsp;';
                 } else {
@@ -200,7 +169,7 @@
         container.appendChild(divMes);
     }
 
-    for(let i=0;i<12;i++){
+    for (let i = 0; i < 12; i++) {
         gerarMes(i, ano);
     }
 </script>

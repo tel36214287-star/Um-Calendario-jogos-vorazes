@@ -5,96 +5,205 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calendário Jogos Vorazes 2025</title>
 <style>
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #111;
-    color: #fff;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
 
-  header {
-    position: relative;
-    text-align: center;
-  }
+    body {
+        font-family: 'Pirata One', Arial, sans-serif;
+        margin: 20px;
+        background: linear-gradient(to bottom, #1a1a1a, #000);
+        color: #fff;
+    }
 
-  header video {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    display: block;
-  }
+    h1 {
+        text-align: center;
+        color: #f39c12;
+        font-size: 3em;
+        text-shadow: 2px 2px 4px #000;
+        margin-bottom: 40px;
+    }
 
-  .calendar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
+    #calendario-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-  .month {
-    position: relative;
-    background: #222;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
+    .mes {
+        background: #222;
+        border: 2px solid #f39c12;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(243, 156, 18, 0.7);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-  .month:hover {
-    transform: scale(1.05);
-  }
+    .mes:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(243, 156, 18, 1);
+    }
 
-  .month img {
-    width: 100%;
-    display: block;
-  }
+    .mes h2 {
+        margin-top: 0;
+        font-size: 1.8em;
+        color: #f39c12;
+        border-bottom: 2px solid #f39c12;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        text-shadow: 1px 1px 2px #000;
+    }
 
-  .month .gif {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 60px;
-    height: 60px;
-  }
+    .mes img.distrito {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 2px solid #f39c12;
+    }
 
-  .month span {
-    display: block;
-    text-align: center;
-    background: #333;
-    padding: 10px 0;
-    font-weight: bold;
-  }
+    .mes img.gif-destaque {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #e74c3c;
+        box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+    }
+
+    .mes table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 5px;
+    }
+
+    .mes th, .mes td {
+        padding: 5px 3px;
+        text-align: center;
+        font-size: 0.85em;
+        border: 1px solid #444;
+    }
+
+    .mes th {
+        background-color: #333;
+        color: #f39c12;
+        font-weight: bold;
+    }
+
+    .mes th:first-child, .mes td:first-child {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+
+    .dia:hover {
+        background-color: #e74c3c;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .vazio {
+        background-color: #111;
+    }
+
+    @media (max-width: 1200px) {
+        #calendario-container { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 800px) {
+        #calendario-container { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+        #calendario-container { grid-template-columns: 1fr; }
+    }
 </style>
 </head>
 <body>
 
-<header>
-  <video autoplay loop muted>
-    <source src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/seu_video.mp4?raw=true" type="video/mp4">
-    Seu navegador não suporta vídeo.
-  </video>
-</header>
+<h1>Calendário Jogos Vorazes 2025</h1>
+<div id="calendario-container"></div>
 
-<div class="calendar">
-  <!-- Janeiro -->
-  <div class="month">
-    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/166911114.png?raw=true" alt="Distrito 1 - Janeiro">
-    <img class="gif" src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/5Zeus.gif?raw=true" alt="Efeito GIF">
-    <span>Janeiro - Distrito 1</span>
-  </div>
-  <!-- Fevereiro -->
-  <div class="month">
-    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/202401939.png?raw=true" alt="Distrito 2 - Fevereiro">
-    <img class="gif" src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/5Zeus.gif?raw=true" alt="Efeito GIF">
-    <span>Fevereiro - Distrito 2</span>
-  </div>
-  <!-- Março -->
-  <div class="month">
-    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/211280998.png?raw=true" alt="Distrito 3 - Março">
-    <img class="gif" src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/5Zeus.gif?raw=true" alt="Efeito GIF">
-    <span>Março - Distrito 3</span>
-  </div>
-  <!-- Continue os meses restantes até Dezembro -->
-</div>
+<script>
+    const container = document.getElementById('calendario-container');
+    const nomesMeses = [
+        "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
+        "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
+    ];
+    const nomesDias = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+    const ano = 2025;
+
+    // Imagens de cada distrito
+    const imagensDistritos = [
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/166911114.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/202401939.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/211280998.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/293232634.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/392696179.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/566031016.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/585400009.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/612145833.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/725442475.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/755832705.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/867605455.png',
+        'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/921322687.png'
+    ];
+
+    // GIF de destaque
+    const gifDestaque = 'https://raw.githubusercontent.com/tel36214287-star/Um-Calendario-jogos-vorazes/main/publicar/5Zeus.gif';
+
+    function gerarMes(mesIndex, ano) {
+        const nomeMes = nomesMeses[mesIndex];
+        const divMes = document.createElement('div');
+        divMes.className = 'mes';
+        divMes.innerHTML = `
+            <h2>${nomeMes}</h2>
+            <img class="distrito" src="${imagensDistritos[mesIndex]}" alt="Distrito ${mesIndex+1}">
+            <img class="gif-destaque" src="${gifDestaque}" alt="GIF Destaque">
+        `;
+
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        thead.innerHTML = '<tr>' + nomesDias.map(d => `<th>${d}</th>`).join('') + '</tr>';
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        const primeiroDia = new Date(ano, mesIndex, 1);
+        const diaSemanaInicio = primeiroDia.getDay();
+        const ultimoDia = new Date(ano, mesIndex+1, 0).getDate();
+        let diaAtual = 1, contadorCelulas = 0;
+
+        while(diaAtual <= ultimoDia){
+            const tr = document.createElement('tr');
+            for(let i=0;i<7;i++){
+                const td = document.createElement('td');
+                if(contadorCelulas < diaSemanaInicio || diaAtual > ultimoDia){
+                    td.className = 'vazio';
+                    td.innerHTML = '&nbsp;';
+                } else {
+                    td.className = 'dia';
+                    td.textContent = diaAtual;
+                    diaAtual++;
+                }
+                tr.appendChild(td);
+                contadorCelulas++;
+            }
+            tbody.appendChild(tr);
+        }
+
+        table.appendChild(tbody);
+        divMes.appendChild(table);
+        container.appendChild(divMes);
+    }
+
+    for(let i=0;i<12;i++){
+        gerarMes(i, ano);
+    }
+</script>
 
 </body>
 </html>

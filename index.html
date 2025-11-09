@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendário Jogos Vorazes</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-gap: 15px;
+    padding: 20px;
+  }
+
+  .day {
+    background: #222;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .day:hover {
+    transform: scale(1.05);
+  }
+
+  .day img, .day video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .day span {
+    display: block;
+    padding: 10px 0;
+    background: #333;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="calendar">
+  <div class="day">
+    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/166911114.png?raw=true" alt="Dia 1">
+    <span>Dia 1</span>
+  </div>
+  <div class="day">
+    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/202401939.png?raw=true" alt="Dia 2">
+    <span>Dia 2</span>
+  </div>
+  <div class="day">
+    <img src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/211280998.png?raw=true" alt="Dia 3">
+    <span>Dia 3</span>
+  </div>
+  <!-- Continue adicionando as outras imagens -->
+  <div class="day">
+    <video autoplay loop muted>
+      <source src="https://github.com/tel36214287-star/Um-Calendario-jogos-vorazes/blob/main/publicar/5Zeus.gif?raw=true" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+    <span>Dia 8</span>
+  </div>
+</div>
+
+</body>
+</html>
